@@ -51,5 +51,10 @@ public class CharacterService {
         existing.setMarriageCandidate(updated.isMarriageCandidate());
         return repository.save(existing);
     }
+
+    public void delete(Long id) {
+        findById(id); // throws 404 if missing
+        repository.deleteById(id);
+    }
     
 }
