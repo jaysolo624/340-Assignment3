@@ -48,19 +48,19 @@ public class StardewCharacter {
         this.description = description;
     }
 
-    public MapLocation getLocation(){
+    public MapLocation getMapLocation(){
         return mapLocation;
     }
 
-    public void setLocation(MapLocation mapLocation){
+    public void setMapLocation(MapLocation mapLocation){
         this.mapLocation = mapLocation;
     }
 
-    public boolean getCandidate(){
+    public boolean isMarriageCandidate(){
         return marriageCandidate;
     }
 
-    public void setCandidate(boolean marriageCandidate){
+    public void setMarriageCandidate(boolean marriageCandidate){
         this.marriageCandidate = marriageCandidate;
     }
 
