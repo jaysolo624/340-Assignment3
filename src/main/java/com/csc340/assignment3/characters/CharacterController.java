@@ -19,9 +19,10 @@ public class CharacterController {
     }
 
     @GetMapping
-    public List<StardewCharacter> list(@RequestParam(required = false) String name,
-            @RequestParam(required = false) MapLocation location) {
-        return service.search(name, location);
+    public List<StardewCharacter> list(
+            @RequestParam(name = "name", required = false) String name,
+            @RequestParam(name = "mapLocation", required = false) MapLocation mapLocation) {
+        return service.search(name, mapLocation);
     }
 
     @GetMapping("/{id}")

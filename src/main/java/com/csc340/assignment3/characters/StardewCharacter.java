@@ -2,6 +2,7 @@ package com.csc340.assignment3.characters;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "characters")
@@ -17,7 +18,7 @@ public class StardewCharacter {
     @NotBlank
     private String description;
 
-    @NotBlank 
+    @NotNull 
     @Enumerated(EnumType.STRING)
     private MapLocation mapLocation;
 
