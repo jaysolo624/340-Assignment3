@@ -49,6 +49,8 @@ public class CharacterService {
         existing.setDescription(updated.getDescription());
         existing.setMapLocation(updated.getMapLocation());
         existing.setMarriageCandidate(updated.isMarriageCandidate());
+        existing.setRelationships(updated.getRelationships());
+        existing.setGifts(updated.getGifts());
         return repository.save(existing);
     }
 
