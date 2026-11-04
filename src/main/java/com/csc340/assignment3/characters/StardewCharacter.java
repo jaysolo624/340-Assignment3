@@ -30,6 +30,9 @@ public class StardewCharacter {
     @NotBlank 
     private String gifts;
 
+    @NotBlank 
+    private String birthday;
+
 
     public StardewCharacter(){
 
@@ -85,6 +88,14 @@ public class StardewCharacter {
 
     public void setGifts(String gifts) {
         this.gifts = gifts;
+    }
+
+    public String getBirthday(){
+        return birthday;
+    }
+
+    public void setBirthday(String birthday){
+        this.birthday = birthday;
     }
 
 }

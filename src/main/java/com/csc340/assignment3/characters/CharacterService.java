@@ -51,6 +51,7 @@ public class CharacterService {
         existing.setMarriageCandidate(updated.isMarriageCandidate());
         existing.setRelationships(updated.getRelationships());
         existing.setGifts(updated.getGifts());
+        existing.setBirthday(updated.getBirthday());
         return repository.save(existing);
     }
 
