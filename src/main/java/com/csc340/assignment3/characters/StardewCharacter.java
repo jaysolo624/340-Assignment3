@@ -24,6 +24,12 @@ public class StardewCharacter {
 
     private boolean marriageCandidate;
 
+    @NotBlank
+    private String relationships;
+
+    @NotBlank 
+    private String gifts;
+
 
     public StardewCharacter(){
 
