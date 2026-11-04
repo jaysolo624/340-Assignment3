@@ -33,6 +33,8 @@ public class StardewCharacter {
     @NotBlank 
     private String birthday;
 
+    private String thumbnailUrl;
+
 
     public StardewCharacter(){
 
@@ -96,6 +98,14 @@ public class StardewCharacter {
 
     public void setBirthday(String birthday){
         this.birthday = birthday;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 
 }
