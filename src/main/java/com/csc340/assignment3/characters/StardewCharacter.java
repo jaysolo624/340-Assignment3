@@ -71,4 +71,20 @@ public class StardewCharacter {
         this.marriageCandidate = marriageCandidate;
     }
 
+    public String getRelationships() {
+        return relationships;
+    }
+
+    public void setRelationships(String relationships) {
+        this.relationships = relationships;
+    }
+
+    public String getGifts() {
+        return gifts;
+    }
+
+    public void setGifts(String gifts) {
+        this.gifts = gifts;
+    }
+
 }
