@@ -1,21 +1,14 @@
 package com.csc340.assignment3.characters;
 
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class CharacterService {
 
     private final CharacterRepository repository;
-
-    private static final String UPLOAD_DIR = "src/main/resources/static/thumbnails/";
 
     public CharacterService(CharacterRepository repository){
         this.repository = repository;
@@ -61,6 +54,7 @@ public class CharacterService {
         existing.setRelationships(updated.getRelationships());
         existing.setGifts(updated.getGifts());
         existing.setBirthday(updated.getBirthday());
+        existing.setThumbnailUrl(updated.getThumbnailUrl());
         return repository.save(existing);
     }
 
@@ -69,22 +63,4 @@ public class CharacterService {
         repository.deleteById(id);
     }
     
-    public void saveThumbnail(StardewCharacter character, MultipartFile file) {
-        // Save the thumbnail file to a location and set the thumbnailUrl in the character
-        // For simplicity, let's assume we save it to a static directory and set the URL
-        // accordingly
-        String originalFileName = file.getOriginalFilename();
-        try {
-            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-            String newFileName = "character_" + character.getId() + "." + fileExtension;
-            Path path = Paths.get(UPLOAD_DIR + newFileName);
-            InputStream inputStream = file.getInputStream();
-            Files.createDirectories(Paths.get(UPLOAD_DIR)); // Ensure the directory exists
-            Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
-            character.setThumbnailUrl( newFileName);
-            repository.save(character);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

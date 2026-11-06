@@ -8,8 +8,7 @@
                 <div class="col-md-8">
                     <div class="card shadow-sm p-4">
                         <h3 class="mb-4 text-center">Character Information</h3>
-                        <form class="row g-3 needs-validation" novalidate method="post" action="${formAction}"
-                            enctype="multipart/form-data">
+                        <form class="row g-3 needs-validation" novalidate method="post" action="${formAction}">
 
                             <label for="name" class="form-label">Character name</label>
                             <input type="text" class="form-control" id="name" name="name" value="${(character.name)!''}"
@@ -52,57 +51,47 @@
                                     Marriage Candidate
                                 </label>
 
-                                
-
-                                <!-- <label for="userMessage" class="form-label">Short Description</label>
-                                <textarea class="form-control" id="description" rows="4" name="description"
-                                    value="${(character.description)!''}" required
-                                    placeholder="This character is..."></textarea>
-                                <div class="invalid-feedback">
-                                    Please provide a valid description.
-                                </div> -->
-
                                 <label for="description" class="form-label">Short Description</label>
-                                <textarea class="form-control" id="description" rows="4" name="description" required placeholder="This character is...">${(character.description)!''}</textarea>
+                                <textarea class="form-control" id="description" rows="4" name="description" required
+                                    placeholder="This character is...">${(character.description)!''}</textarea>
                                 <div class="invalid-feedback">
                                     Please provide a valid description.
                                 </div>
-
-
-                                <!-- <label for="userMessage" class="form-label">Loved Gifts</label>
-                                <textarea class="form-control" id="gifts" rows="4" name="gifts"
-                                    value="${(character.gifts)!''}" required
-                                    placeholder="This character loves..."></textarea>
-                                <div class="invalid-feedback">
-                                    Please provide a valid gift.
-                                </div> -->
 
                                 <label for="gifts" class="form-label">Loved Gifts</label>
-                                <textarea class="form-control" id="gifts" rows="4" name="gifts" required placeholder="This character loves...">${(character.gifts)!''}</textarea>
+                                <textarea class="form-control" id="gifts" rows="4" name="gifts" required
+                                    placeholder="This character loves...">${(character.gifts)!''}</textarea>
                                 <div class="invalid-feedback">
                                     Please provide a valid gift.
                                 </div>
 
-                                <!-- <label for="userMessage" class="form-label">Loved Gifts</label>
-                                <textarea class="form-control" id="relationships" rows="4" name="relationships"
-                                    value="${(character.relationships)!''}" required
-                                    placeholder="This character is friends with..."></textarea>
-                                <div class="invalid-feedback">
-                                    Please provide at least one relationship.
-                                </div> -->
-
                                 <label for="relationships" class="form-label">Relationships </label>
-                                <textarea class="form-control" id="relationships" rows="4" name="relationships" required placeholder="This character is friends with...">${(character.relationships)!''}</textarea>
+                                <textarea class="form-control" id="relationships" rows="4" name="relationships" required
+                                    placeholder="This character is friends with...">${(character.relationships)!''}</textarea>
                                 <div class="invalid-feedback">
                                     Please provide at least one relationship.
                                 </div>
 
-                                <label for="imageFile">Picture (JPEG, PNG, or WebP, up to 1 MB)</label>
+                                <!-- <label for="imageFile">Picture (JPEG, PNG, or WebP, up to 1 MB)</label>
                                 <#if characterId??>
                                     <img class="thumb" src="/characters/${characterId?c}/image" alt="Current picture">
                                 </#if>
                                 <input id="imageFile" name="imageFile" type="file"
-                                    accept="image/jpeg,image/png,image/webp">
+                                    accept="image/jpeg,image/png,image/webp"> -->
+
+                                <label for="thumbnailUrl"
+                                    class="form-label">Picture URL</label>
+                                <input type="url" class="form-control"
+                                id="thumbnailUrl" name="thumbnailUrl"
+                                value="${(character.thumbnailUrl)!''}"
+                                placeholder="https://example.com/portrait.png">
+                                <#if (character.thumbnailUrl)?has_content>
+                                    <img class="thumb"
+                                    src="${character.thumbnailUrl}"
+                                    width="150"
+                                    alt="Current picture">
+                                </#if>
+
 
                                 <button class="btn btn-primary" type="submit">Submit form</button>
 

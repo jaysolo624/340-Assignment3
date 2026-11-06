@@ -41,7 +41,7 @@
                 <#list characters as character>
                     <div class="col">
                         <div class="card h-100">
-                            <img src="/thumbnails/${(character.thumbnailUrl)!'image-placeholder.webp'}"
+                            <img src="${(character.thumbnailUrl)!'/thumbnails/image-placeholder.webp'}"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">${character.name}</h5>
