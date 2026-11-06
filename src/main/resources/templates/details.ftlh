@@ -3,9 +3,8 @@
 
     <p> </p>
 
-    <div class="container-md">
-        <button type="button" class="btn btn-outline-secondary">&larr; Back to Gallery</button>
-    </div>
+
+    <a href="/characters" class="btn btn-outline-secondary">&larr; Back to Gallery</a>
 
     <p> </p>
 

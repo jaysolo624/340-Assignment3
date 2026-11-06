@@ -16,7 +16,7 @@
             crossorigin="anonymous"></script>
         <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/characters">
                 <img src="/thumbnails/chicken.ico" alt="Logo" width="25" height="25" class="d-inline-block align-text-top">
                 Stardew Valley Gallery
 
@@ -29,7 +29,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link <#if active == 'home'>active</#if>" href="/characters">Home</a>
                     <a class="nav-link <#if active == 'about'>active</#if>" href="/about">About</a>
-                    <a class="nav-link <#if active == 'new'>active</#if>" href="/new-character-form">Add Character</a>
+                    <a class="nav-link <#if active == 'new'>active</#if>" href="/characters/new">Add Character</a>
                 </div>
             </div>
         </div>
