@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class StardewCharacterNotFoundException extends RuntimeException {
     public StardewCharacterNotFoundException(Long id) {
-        super("Stardew Character " + id + " not found");
+        super("Stardew Character " + id + " isn't here... maybe you've got the wrong address");
     }
 }
