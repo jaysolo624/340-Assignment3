@@ -2,7 +2,6 @@
     <@l.page title=formTitle active=(characterId??)?then('', 'new' )>
 
         <h2 class="text-center mt-5"> ${formTitle}</h2>
-        <p class="text-center">Share your favorite Stardew Valley character.</p>
 
         <div class="container">
             <div class="row justify-content-center">
