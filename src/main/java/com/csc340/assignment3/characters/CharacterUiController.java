@@ -2,6 +2,7 @@ package com.csc340.assignment3.characters;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,23 +48,51 @@ public class CharacterUiController {
         return "details";
     }
 
-    // getting form
+    // adding new character, get form and post character from form input
     @GetMapping("/characters/new")
     public String newForm(Model model) {
         StardewCharacter character = new StardewCharacter();
         model.addAttribute("character", character);
         model.addAttribute("formTitle", "Add a Character");
         model.addAttribute("formAction", "/characters");
-        return "new-character-form";
+        return "character-form";
     }
 
     @PostMapping("/characters")
-    public String createCharacter(@Valid @ModelAttribute StardewCharacter character, @RequestParam(value="imageFile", required=false) MultipartFile imageFile) {
+    public String createCharacter(@Valid @ModelAttribute StardewCharacter character,
+            @RequestParam(value = "imageFile", required = false) MultipartFile imageFile) {
         StardewCharacter createdCharacter = service.create(character);
         if (imageFile != null && !imageFile.isEmpty()) {
             service.saveThumbnail(createdCharacter, imageFile);
         }
         return "redirect:/characters/" + createdCharacter.getId();
+    }
+
+    // edit existing character, get pre filled form for character and post for updated info
+    @GetMapping("/characters/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        StardewCharacter character = service.findById(id);
+        model.addAttribute("character", character);
+        model.addAttribute("formTitle", "Edit Character");
+        model.addAttribute("formAction", "/characters/" + id);
+        return "character-form";
+    }
+
+    @PostMapping("/characters/{id}")
+    public String updateCharacter(@PathVariable Long id, @Valid @ModelAttribute StardewCharacter character, BindingResult result, 
+            @RequestParam(value = "imageFile", required = false) MultipartFile imageFile) {
+        StardewCharacter updatedCharacter = service.update(id, character);
+        if (imageFile != null && !imageFile.isEmpty()) {
+            service.saveThumbnail(updatedCharacter, imageFile);
+        }
+        return "redirect:/characters/" + updatedCharacter.getId();
+    }
+
+    //delete 
+    @PostMapping("/characters/{id}/delete")
+    public String deleteCharacter(@PathVariable Long id) {
+        service.delete(id);
+        return "redirect:/characters";
     }
 
 }
