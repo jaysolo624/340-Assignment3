@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <img src="${(myChar.thumbnailUrl)!'/thumbnails/image-placeholder.webp'}" class="img-thumbnail"
-                        width="300" alt="...">
+                        width="300" alt="..." onerror="this.onerror=null; this.src='/thumbnails/image-placeholder.webp';">
                     <p> </p>
                     <div class="card text-dark bg-light mb-3" style="max-width: 19rem;">
                         <div class="card-header">

@@ -42,7 +42,7 @@
                     <div class="col">
                         <div class="card h-100">
                             <img src="${(character.thumbnailUrl)!'/thumbnails/image-placeholder.webp'}"
-                                class="card-img-top" alt="...">
+                                class="card-img-top" alt="${character.name}" onerror="this.onerror=null; this.src='/thumbnails/image-placeholder.webp';">
                             <div class="card-body">
                                 <h5 class="card-title">${character.name}</h5>
                                 <p class="card-text"> ${character.description} </p>

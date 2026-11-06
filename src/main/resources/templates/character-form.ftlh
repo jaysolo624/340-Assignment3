@@ -72,13 +72,6 @@
                                     Please provide at least one relationship.
                                 </div>
 
-                                <!-- <label for="imageFile">Picture (JPEG, PNG, or WebP, up to 1 MB)</label>
-                                <#if characterId??>
-                                    <img class="thumb" src="/characters/${characterId?c}/image" alt="Current picture">
-                                </#if>
-                                <input id="imageFile" name="imageFile" type="file"
-                                    accept="image/jpeg,image/png,image/webp"> -->
-
                                 <label for="thumbnailUrl"
                                     class="form-label">Picture URL</label>
                                 <input type="url" class="form-control"
