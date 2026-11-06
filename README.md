@@ -4,6 +4,8 @@
 
 An API for tracking characters from video game Stardew Valley, built with Spring Boot using a layered architecture. Database is stored in Neon.
 
+This project includes a server-rendered MVC web interface for managing characters in a browser. The web interface and JSON API share the same service, repository, and database.
+
 ## Data Model
 **Stardew Character** (table `characters`)
 
@@ -11,11 +13,15 @@ An API for tracking characters from video game Stardew Valley, built with Spring
 |-------|------|-------|
 | `id` | Long | Generated automatically |
 | `name` | String | Required, not blank |
+| `birthday` | String | Required, not blank |
 | `description` | String | Required, not blank |
+| `gifts` | String | Required, not blank |
+| `relationships` | String | Required, not blank |
 | `mapLocation` | Enum: `MOUNTAINS`, `BEACH`, `PELICAN_TOWN`, `CINDERSAP_FOREST`, `CALICO_DESERT`, `GINGER_ISLAND` | Required |
 | `marriageCandidate` | boolean | Defaults to false |
+| `thumbnailUrl` | String | Optional uploaded picture filename |
 
-## API Reference
+## API Reference - Original JSON Api
 
 Base path: `/api/characters`
 
@@ -27,6 +33,21 @@ Base path: `/api/characters`
 | PUT | `/api/characters/{id}` | Replace a character's fields | 200 |
 | DELETE | `/api/characters/{id}` | Delete a character | 204 |
 
+
+## API Reference - MVC Web Interface
+
+Base path: `/characters`
+
+| Method | Path | Description | Success |
+|--------|------|-------------|---------|
+| GET | `/characters` | Character gallery, optionally filter with `name` and `mapLocation` query parameters  | 200 |
+| GET | `/characters/{id}` | Show character details | 200 |
+| GET | `/characters/new` | Show form to add a character | 200 |
+| POST | `/characters` | Create a character and optionally upload a picture | 201 |
+| GET | `/characters/{id}/edit` | Show pre filled form to edit a character | 200 |
+| POST | `/characters/{id}` | Update character details and optionally upload a picture | 201 |
+| POST | `/characters/{id}/delete` | Delete a character | 201 |
+| GET | `/about` | Show a page that explain the application | 200 |
 
 ### Query parameters for `GET /api/characters`
 
