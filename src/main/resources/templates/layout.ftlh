@@ -27,9 +27,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link <#if active == 'home'>active</#if>" href="index">Home</a>
-                    <a class="nav-link <#if active == 'about'>active</#if>" href="about">About</a>
-                    <a class="nav-link <#if active == 'new'>active</#if>" href="new-character-form">Add Character</a>
+                    <a class="nav-link <#if active == 'home'>active</#if>" href="/characters">Home</a>
+                    <a class="nav-link <#if active == 'about'>active</#if>" href="/about">About</a>
+                    <a class="nav-link <#if active == 'new'>active</#if>" href="/new-character-form">Add Character</a>
                 </div>
             </div>
         </div>
